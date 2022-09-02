@@ -1,0 +1,63 @@
+
+
+@function random-hex() {
+
+    // la varibile prima del for 
+    $hex: '#';
+
+  // for
+  @for $i from 1 through 6 {
+    
+
+   $random-number: random(16) - 1;
+    @if $random-number > 9 {
+
+        @if $random-number == 10 {
+            $random-number: 'A';
+            
+        } @else if $random-number == 11 {
+            $random-number: 'B';
+            
+        } @else if $random-number == 12 {
+            $random-number: 'C';
+            
+        } @else if $random-number == 13 {
+            $random-number: 'D';
+            
+        } @else if $random-number == 14 {
+            $random-number: 'E';
+            
+        } @else {
+            $random-number: 'F';
+            
+        } 
+        
+    }
+
+    // concat string
+    $hex: $hex + $random-number;
+
+  }
+
+  
+
+    @return unquote($hex);
+
+
+}
+
+
+
+
+body {
+    background-color: random-hex();
+    font-size: 20px;
+
+    
+
+    p {
+        color: blue;
+    }
+}
+
+

@@ -1,0 +1,162 @@
+/* @use base - moduli */
+@use 'base';
+
+
+
+/* dichiaro la mia variabile */
+$bg-red: #ff0000;
+$_100vh: 100vh;
+$_100px: 100px;
+
+.container {
+    background-color: $bg-red;
+    height: $_100vh;
+    width: $_100px - 50px;
+}
+
+/* nesting */
+.container nav {
+
+    background-color: greenyellow;
+
+    ul {
+        color: aqua;
+        padding-left: 30px;
+
+    }
+
+    li {
+        list-style: none;
+        font-size: 20px;
+        color: violet;
+
+    }
+
+    a {
+        background-color: aliceblue;
+        text-decoration: none;
+
+    }
+}
+
+
+/* creare la mixin */
+@mixin transform($property) {
+    transform: $property;
+    -webkit-transform: $property;
+    -moz-transform: $property;
+    
+}
+
+.box {
+    @include transform(rotate(90deg));
+    height: 200px;
+    background-color: yellow;
+}
+
+
+
+
+/* function */
+@function sum($val1, $val2) {
+    @return $val1 + $val2;
+}
+
+.function-box {
+    height: 200px;
+    width: sum(100px, 500px);
+    background-color: aquamarine;
+}
+
+/* le funzioni possono fare anche altro */
+@function getText($text) {
+    @return $text;
+}
+
+.function-box {
+    content: getText("Hey there, how are you?");
+}
+
+/* @use base - moduli */
+
+.moduli-box {
+    color: base.$primary-color;
+}
+
+/* How to @extend */
+
+%box2 {
+    width: 200px;
+    height: 200px;
+    border: 2px solid red;
+    background-color: coral
+
+}
+
+.box2 {
+    @extend %box2;
+}
+
+.box3{
+    @extend %box2;
+    background-color: brown;
+}
+
+.box4 {
+    @extend %box2;
+    background-color: rgb(228, 32, 231);
+
+}
+
+.box5 {
+    @extend %box2;
+    background-color: rgb(42, 165, 44);
+    color: aliceblue;
+    text-align: center;
+}
+
+/* i selettori */
+/* il selettore padre */
+
+.alert {
+    color: cornflowerblue;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/* il selettore segnaposto - l'abbiamo utilizzato prima con la regola extend. */
+
+
+/* gli operatori */
+$number: 3;
+$string: "hey, there.";
+
+// se uso + e - con le stringhe farà la concatenazione delle stringhe. 
+
+
+
+
+//Flow control
+
+$sizes: 40px, 50px, 80px; 
+@each $item in $sizes {
+    .icon-#{$item} {
+        font-size: $item;
+        height: $item;
+        width: $item;
+    }
+    
+}
+
+// while example 
+
+@function scale-below($value, $base, $ratio: 1.618) {
+    @while $value > $base { //parte da 20px
+        $value: calc($value / $ratio);
+    }
+    @return $value;
+}
+.font-scale {
+    font-size: scale-below(20px, 16px, );
+}

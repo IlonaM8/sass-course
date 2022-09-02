@@ -1,0 +1,28 @@
+
+
+
+@mixin bounce-animation($duration: null, $start: null, $distance: null){
+@keyframes my-animation {
+    0% {transform: translateY($start);}
+    40% {transform: translateY($distance);}
+    60% { transform: translateY($distance / 2);}
+    100% {transform: translateY($start);}
+
+    
+} 
+
+animation-duration: $duration;
+
+}
+
+    
+.bounce{
+    animation-name: my-animation;
+    animation-iteration-count: infinite;
+    @include bounce-animation(1s, 0, 30px);
+    width: 50px;
+    height: 50px;
+    background-color: aquamarine;
+    border-radius: 100%;
+    
+}

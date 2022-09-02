@@ -1,0 +1,112 @@
+body {
+  color: #480cfe;
+}
+
+/* @use base - moduli */
+/* dichiaro la mia variabile */
+.container {
+  background-color: #ff0000;
+  height: 100vh;
+  width: 50px;
+}
+
+/* nesting */
+.container nav {
+  background-color: greenyellow;
+}
+.container nav ul {
+  color: aqua;
+  padding-left: 30px;
+}
+.container nav li {
+  list-style: none;
+  font-size: 20px;
+  color: violet;
+}
+.container nav a {
+  background-color: aliceblue;
+  text-decoration: none;
+}
+
+/* creare la mixin */
+.box {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  height: 200px;
+  background-color: yellow;
+}
+
+/* function */
+.function-box {
+  height: 200px;
+  width: 600px;
+  background-color: aquamarine;
+}
+
+/* le funzioni possono fare anche altro */
+.function-box {
+  content: "Hey there, how are you?";
+}
+
+/* @use base - moduli */
+.moduli-box {
+  color: #480cfe;
+}
+
+/* How to @extend */
+.box5, .box4, .box3, .box2 {
+  width: 200px;
+  height: 200px;
+  border: 2px solid red;
+  background-color: coral;
+}
+
+.box3 {
+  background-color: brown;
+}
+
+.box4 {
+  background-color: rgb(228, 32, 231);
+}
+
+.box5 {
+  background-color: rgb(42, 165, 44);
+  color: aliceblue;
+  text-align: center;
+}
+
+/* i selettori */
+/* il selettore padre */
+.alert {
+  color: cornflowerblue;
+}
+.alert:hover {
+  text-decoration: underline;
+}
+
+/* il selettore segnaposto - l'abbiamo utilizzato prima con la regola extend. */
+/* gli operatori */
+.icon-40px {
+  font-size: 40px;
+  height: 40px;
+  width: 40px;
+}
+
+.icon-50px {
+  font-size: 50px;
+  height: 50px;
+  width: 50px;
+}
+
+.icon-80px {
+  font-size: 80px;
+  height: 80px;
+  width: 80px;
+}
+
+.font-scale {
+  font-size: 12.3609394314px;
+}
+
+/*# sourceMappingURL=style.css.map */
