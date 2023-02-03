@@ -2,10 +2,32 @@ $color-primary: red;
 $color-secondary: blue;
 $color-tertiary: green;
 
-.exercise { border: 1px solid $color-primary;
+.exercise {
+    border: 1px solid $color-primary;
 
     .exercise-title {
         color: $color-tertiary;
+        text-align: center;
+        text-decoration: underline;
     }
-
 }
+section {
+        display: flex;
+        color: $color-secondary;
+        border: 1px solid $color-tertiary;
+        margin: 20px;
+
+
+        .box1,
+        .box3 {
+            color: $color-secondary;
+            text-align: center;
+            border: 1px solid $color-tertiary;
+        }
+
+        .box2, .box4{
+            color: $color-tertiary;
+            text-align: center;
+            border: 1px solid $color-tertiary;
+        }
+    }
