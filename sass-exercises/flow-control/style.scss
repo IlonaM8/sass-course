@@ -1,0 +1,81 @@
+
+$color-primary: red;
+$color-secondary: blue;
+$color-tertiary: green;
+$default-font-size: 1rem;
+$footer-font-size: 24px;
+$border-color: red;
+
+@mixin article-style($color, $border-color, $font-size: $default-font-size) {
+    color: $color;
+    border: 1px solid $border-color;
+    font-size: $font-size;
+}
+
+body {
+    div {
+        border: 1px solid $border-color;
+
+        h1, h2 {
+            text-align: center;
+            color: $color-tertiary;
+            text-decoration: underline;
+        }
+
+        section {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+            article {
+                align-items: center;
+                text-align: center;
+                @include article-style($color-secondary, $color-tertiary, $default-font-size);
+            }
+
+
+
+            footer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: $footer-font-size;
+                text-align: center;
+            }
+        }
+    }
+}
+
+section article:nth-child(2), section article:nth-child(4) {
+    @include article-style(red, $border-color, $default-font-size);
+}
+
+
+
+
+
+
+
+$font-sizes: (1, 2, 3);
+
+@each $fs in $font-sizes {
+  .fs-#{$fs}rem {
+    font-size: #{$fs}rem;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @for $i from 1 to 20 {
+      &:nth-child(#{$i}) {
+        @if ($i % 2 == 0) {
+          background-color: lighten(black, $fs * 5);
+          color: darken(white, $fs * 5);
+        } @else {
+          background-color: darken(white, $fs * 5);
+          color: lighten(black, $fs * 5);
+        }
+      }
+    }
+  }
+}
