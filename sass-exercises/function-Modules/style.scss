@@ -1,0 +1,59 @@
+
+@use "functions" as f;
+
+$color-primary: red;
+$color-secondary: blue;
+$color-tertiary: green;
+$default-font-size: 1rem;
+$footer-font-size: 24px;
+$border-color: red;
+
+
+
+
+@mixin article-style($color, $border-color, $font-size: $default-font-size) {
+    color: $color;
+    border: 1px solid $border-color;
+    font-size: $font-size;
+    }
+
+    body {
+    div {
+    border: 1px solid $border-color;
+
+    h1 {
+        text-align: center;
+        color: $color-tertiary;
+        text-decoration: underline;
+    }
+
+    section {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+        article {
+            align-items: center;
+            text-align: center;
+            @include article-style($color-secondary, $color-tertiary, f.rem($default-font-size));
+        }
+
+
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: f.rem($footer-font-size);
+            text-align: center;
+        }
+    }
+}
+
+
+}
+
+ section article:nth-child(2), section article:nth-child(4) {
+    @include article-style(red, $border-color, f.rem($default-font-size));
+}
+
+
